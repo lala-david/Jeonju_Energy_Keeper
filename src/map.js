@@ -57,4 +57,4 @@ function displayArea(area) {
 
          infowindow.open(map);
       });
-}
+}  
