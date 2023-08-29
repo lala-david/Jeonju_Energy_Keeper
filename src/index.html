@@ -7,9 +7,10 @@
     <style>
         #data-table {
             position: fixed;
-            top: 10px;
-            right: 10px;
-            max-height: 90vh;
+            top: 50px;
+            right: 100px;
+            max-height: 50vh;
+            width: 60vw;
             overflow-y: auto;
         }
 
@@ -17,44 +18,73 @@
             border-collapse: collapse;
             width: auto; 
             font-size:.8em; 
-            color:#333; /* 글자색 */
+            color:#333;  
             border: 1px solid #333;  
+            width: 100%; 
+            font-size :1em;  
+        }
+    
+        #table th, #table td {
+            text-align:center ; 
+            border-bottom :1px solid #333 ; 
+            padding :8px ;
         }
         
-
-        #table th, #table td {
-            border-bottom: 1px solid #333; 
-            padding: 8px;
-    
-            
-        }
-
- 
-
         /* 제목 */
-        #table thead{
-            background-color:#007BFF; 
-            color:white;  
+        #table thead {
+            background-color: #007BFF; 
+            color: white ;
         }
 
- 
+  
+        ::-webkit-scrollbar {
+            width: 8px ;
+        }
 
+        ::-webkit-scrollbar-thumb {
+            background-color: #007BFF ;
+            border-radius: 4px ;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #E3F2FD ;
+        }
+ 
+        #data-table::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        #data-table::-webkit-scrollbar-thumb {
+            background: linear-gradient(to top, #007BFF, transparent);
+            border-radius: 6px;
+        }
+
+        #data-table::-webkit-scrollbar-track {
+            background-color: #E3F2FD;
+            border-radius: 6px;
+        }
+ 
     </style>
 </head>
 
 <body>
-    <div id="map" style="width:300px;height:300px;"></div>
+    <div id="map" style="width:500px;height:500px;"></div>
 
     <div id="data-table">
         <table id="table">
-            <thead>
-              <tr>
-                  <th>구</th><th>행정동</th><th>전력소비량(G)</th><th>에너지절감률(%)</th><th>전기차충전소수</th><th>녹색아파트수</th><th>태양광설비수</tr></thead><tbody></tbody><!-- 데이터가 여기에 삽입됩니다 -->
-            </table>
+             <thead>
+                <tr>
+                   <th>구</th><th>행정동</th><th>전력소비량(G)</th><th>에너지절감률(%)</th><th>전기차충전소수</th><th>녹색아파트수</th><th>태양광설비수</th><th>인구수</th><th>그늘막수</th><th>버스장류수</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+            </tbody>
+
+        </table>
     </div>
 
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3984a1aa2da153746f0f64b9860f83c9"></script>
-
     <script src="./map.js"></script>
-
-</body></html>
+</body>
+</html>

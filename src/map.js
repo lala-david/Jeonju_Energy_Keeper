@@ -25,7 +25,10 @@ fetch('./json/data.json')
             <td>${data[i]["에너지절감률(%)"]+'%' }</td>
             <td>${data[i]["전기차충전소수"] }</td>
             <td>${data[i]["녹색아파트수"] }</td>
-            <td>${data[i]["태양광설비수"] } </tr>`;
+            <td>${data[i]["태양광설비수"] }</td>
+            <td>${data[i]["인구수"] }</td>
+            <td>${data[i]["그늘막수"] }</td>
+            <td>${data[i]["버스정류장수"] }</td> </tr>`;
         tableBody.innerHTML += rowHTML;
         
     }
