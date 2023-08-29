@@ -1,8 +1,8 @@
 var mapContainer = document.getElementById('map');
 
 var mapOption = {
-    center: new kakao.maps.LatLng(35.824018302883686, 127.14790719550994),
-    level: 10
+    center: new kakao.maps.LatLng(35.8216, 127.1080),
+    level: 8
 };
 
 var map = new kakao.maps.Map(mapContainer, mapOption);
@@ -21,14 +21,14 @@ fetch('./json/data.json')
         `<tr class="${data[i]["행정동"]}">
             <td>${data[i]["구"] }</td>
             <td>${data[i]["행정동"] }</td>
-            <td>${data[i]["전력소비량(G)"] }</td>
+            <td>${data[i]["전력소비량(G)"] + 'G' }</td>
             <td>${data[i]["에너지절감률(%)"]+'%' }</td>
-            <td>${data[i]["전기차충전소수"] }</td>
-            <td>${data[i]["녹색아파트수"] }</td>
-            <td>${data[i]["태양광설비수"] }</td>
-            <td>${data[i]["인구수"] }</td>
-            <td>${data[i]["그늘막수"] }</td>
-            <td>${data[i]["버스정류장수"] }</td> </tr>`;
+            <td>${data[i]["전기차충전소수"]+ '개' }</td>
+            <td>${data[i]["녹색아파트수"] + '개' }</td>
+            <td>${data[i]["태양광설비수"] + '개' }</td>
+            <td>${data[i]["인구수"] + '명' }</td>
+            <td>${data[i]["그늘막수"] + '개'}</td>
+            <td>${data[i]["버스정류장수"] + '개' }</td> </tr>`;
         tableBody.innerHTML += rowHTML;
         
     }
