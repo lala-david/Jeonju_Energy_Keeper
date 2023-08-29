@@ -3,14 +3,58 @@
 <head>
     <meta charset="utf-8">
     <title>전주시 지도</title>
+
+    <style>
+        #data-table {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        #table {
+            border-collapse: collapse;
+            width: auto; 
+            font-size:.8em; 
+            color:#333; /* 글자색 */
+            border: 1px solid #333;  
+        }
+        
+
+        #table th, #table td {
+            border-bottom: 1px solid #333; 
+            padding: 8px;
     
+            
+        }
+
+ 
+
+        /* 제목 */
+        #table thead{
+            background-color:#007BFF; 
+            color:white;  
+        }
+
+ 
+
+    </style>
 </head>
+
 <body>
-<div id="map" style="width:50%;height:350px;"></div>
+    <div id="map" style="width:300px;height:300px;"></div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3984a1aa2da153746f0f64b9860f83c9"></script>
+    <div id="data-table">
+        <table id="table">
+            <thead>
+              <tr>
+                  <th>구</th><th>행정동</th><th>전력소비량(G)</th><th>에너지절감률(%)</th><th>전기차충전소수</th><th>녹색아파트수</th><th>태양광설비수</tr></thead><tbody></tbody><!-- 데이터가 여기에 삽입됩니다 -->
+            </table>
+    </div>
 
-<script src="./map.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3984a1aa2da153746f0f64b9860f83c9"></script>
 
-</body>
-</html>
+    <script src="./map.js"></script>
+
+</body></html>
