@@ -3,13 +3,13 @@ import folium
 from folium.features import GeoJson, GeoJsonTooltip
 import pandas as pd
 
-# 데이터프레임 로드
+# data
 df = pd.read_json('src/json/ironMan.json')
 
-# 행정동 이름을 key로, 합계 값을 value로 하는 딕셔너리 생성
+# dic
 data_dict = df.set_index('행정동')['합계'].to_dict()
 
-# dong.json 파일 로드 및 GeoJSON 변환 
+# geoJson
 with open('src/json/dong.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
