@@ -57,3 +57,9 @@
     background-color: #E3F2FD;
     border-radius: 6px;
 }
+
+button {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+  }

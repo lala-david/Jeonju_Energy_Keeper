@@ -10,7 +10,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 var infowindow = new kakao.maps.InfoWindow({removable: true});
 
 // data.json  
-fetch('./json/data.json')
+fetch('./json/energyData.json')
 .then(response => response.json())
 .then(data => {
 
@@ -24,11 +24,8 @@ fetch('./json/data.json')
             <td>${data[i]["전력소비량(G)"] + 'G' }</td>
             <td>${data[i]["에너지절감률(%)"]+'%' }</td>
             <td>${data[i]["전기차충전소수"]+ '개' }</td>
-            <td>${data[i]["녹색아파트수"] + '개' }</td>
-            <td>${data[i]["태양광설비수"] + '개' }</td>
-            <td>${data[i]["인구수"] + '명' }</td>
-            <td>${data[i]["그늘막수"] + '개'}</td>
-            <td>${data[i]["버스정류장수"] + '개' }</td> </tr>`;
+            <td>${data[i]["녹색아파트수(세대수)"] + '개' }</td>
+            <td>${data[i]["태양광설비수"] + '개' }</td> </tr>`;
         tableBody.innerHTML += rowHTML;
         
     }
