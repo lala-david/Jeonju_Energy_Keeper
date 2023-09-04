@@ -4,10 +4,10 @@ from folium.features import GeoJson, GeoJsonTooltip
 import pandas as pd
 
 # data
-df = pd.read_json('src/json/ironMan3.json')
+df = pd.read_json('src/json/ironMan5.json')
 
 # dic
-data_dict = df.set_index('행정동')['합계'].to_dict()
+data_dict = df.set_index('행정동')['일조량_구'].to_dict()
 
 # geoJson
 with open('src/json/dong.json', 'r', encoding='utf-8') as f:
@@ -26,11 +26,15 @@ geo_data = {
         } for d in data]
 }
 
- 
 m = folium.Map(location=[35.8216, 127.1080], zoom_start=12, width=500, height=500)
 
+# 주어진 일조량 데이터에 따라 bins 값을 조정 
+min_sunshine = df['일조량_구'].min()
+max_sunshine = df['일조량_구'].max()
+interval = (max_sunshine - min_sunshine) / 5
+
  
-bins = list(df['합계'].quantile([0, 0.35,  0.55,  0.75, 0.95, 1]))
+bins = [min_sunshine + i*interval for i in range(6)]
 
 g = folium.GeoJson(
     geo_data,
@@ -41,8 +45,6 @@ g = folium.GeoJson(
         'dashArray': '5, 5'
     }
 )
-
-
 
 tooltip=GeoJsonTooltip(
     fields=["name"],
@@ -66,7 +68,7 @@ choro =  folium.Choropleth(
    geo_data=geo_data,
    name='choropleth',
    data=data_dict,
-   fill_color='YlGn_r',  
+   fill_color='YlGnBu',  
    fill_opacity=0.5,
    line_opacity=0.2,
    key_on='feature.properties.name',
@@ -80,4 +82,4 @@ choro.geojson.add_child(
 folium.LayerControl().add_to(m)
 
 
-m.save('src/energySave1.html')
+m.save('src/energySave2.html')

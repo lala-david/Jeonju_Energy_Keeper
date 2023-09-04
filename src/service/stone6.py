@@ -4,10 +4,10 @@ from folium.features import GeoJson, GeoJsonTooltip
 import pandas as pd
 
 # data
-df = pd.read_json('src/json/ironMan3.json')
+df = pd.read_json('src/json/ironMan8.json')
 
 # dic
-data_dict = df.set_index('행정동')['합계'].to_dict()
+data_dict = df.set_index('행정동')['결과값'].to_dict()
 
 # geoJson
 with open('src/json/dong.json', 'r', encoding='utf-8') as f:
@@ -30,7 +30,7 @@ geo_data = {
 m = folium.Map(location=[35.8216, 127.1080], zoom_start=12, width=500, height=500)
 
  
-bins = list(df['합계'].quantile([0, 0.35,  0.55,  0.75, 0.95, 1]))
+bins = list(df['결과값'].quantile([0, 0.35,  0.55,  0.75, 0.95, 1]))
 
 g = folium.GeoJson(
     geo_data,
@@ -66,8 +66,8 @@ choro =  folium.Choropleth(
    geo_data=geo_data,
    name='choropleth',
    data=data_dict,
-   fill_color='YlGn_r',  
-   fill_opacity=0.5,
+   fill_color='OrRd',  
+   fill_opacity=0.8, 
    line_opacity=0.2,
    key_on='feature.properties.name',
    bins=bins,
@@ -80,4 +80,4 @@ choro.geojson.add_child(
 folium.LayerControl().add_to(m)
 
 
-m.save('src/energySave1.html')
+m.save('src/energySave5.html')

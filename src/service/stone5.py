@@ -4,7 +4,7 @@ from folium.features import GeoJson, GeoJsonTooltip
 import pandas as pd
 
 # data
-df = pd.read_json('src/json/ironMan3.json')
+df = pd.read_json('src/json/ironMan7.json')
 
 # dic
 data_dict = df.set_index('행정동')['합계'].to_dict()
@@ -66,7 +66,7 @@ choro =  folium.Choropleth(
    geo_data=geo_data,
    name='choropleth',
    data=data_dict,
-   fill_color='YlGn_r',  
+   fill_color='YlGn',  
    fill_opacity=0.5,
    line_opacity=0.2,
    key_on='feature.properties.name',
@@ -80,4 +80,4 @@ choro.geojson.add_child(
 folium.LayerControl().add_to(m)
 
 
-m.save('src/energySave1.html')
+m.save('src/energySave4.html')
